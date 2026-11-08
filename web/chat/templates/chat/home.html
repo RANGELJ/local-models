@@ -1,8 +1,28 @@
+<!-- web/chat/templates/chat/home.html -->
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Home</title></head>
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+</head>
 <body>
   <h1>Hello, {{ user.username }}</h1>
+
+  <form method="post" action="{% url 'home' %}">
+    {% csrf_token %}
+    <textarea name="content" rows="4" cols="60" placeholder="Write a message..." required></textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+
+  <ul>
+    {% for message in chat_messages %}
+      <li>{{ message.content }}</li>
+    {% empty %}
+      <li>No messages yet.</li>
+    {% endfor %}
+  </ul>
+
   <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
     <button type="submit">Log out</button>
