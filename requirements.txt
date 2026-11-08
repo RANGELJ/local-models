@@ -1,0 +1,4 @@
+requests~=2.34
+Django~=6.1
+
+psycopg[binary]

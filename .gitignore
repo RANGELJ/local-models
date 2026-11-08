@@ -1,0 +1,25 @@
+# Secrets and local config
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Django
+web/db.sqlite3
+web/staticfiles/
+web/media/
+*.log
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
